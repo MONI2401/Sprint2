@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from 'react-redux';
+import store from './store/store'
+import CustomerRouter from './routers/customer/CustomerRouter'
+import PaymentRouter from './routers/payment/PaymentRouter';
+import HomeRouter from './routers/HomeRouter'
+import OrderRouter from './routers/order/OrderRouter'
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    return (
+        <div>
+            <Provider store={store()}>
+               <HomeRouter />
+
+            </Provider>
+        </div>
+
+    );
+
+
 }
 
 export default App;
