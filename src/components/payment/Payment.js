@@ -44,7 +44,7 @@ const Payment = () => {
 
     return (
         <div className={useStyles.root} >
-         <Box color="white" bgcolor="black" p={1}> <h2 class="ui blue inverted header">Payment Details</h2></Box>
+         <Box color="white" bgcolor="black" p={1}> <h2 >Payment Details</h2></Box>
          <Paper elevation={3} >
         <ul class="list-group-item " style={{ backgroundColor: '#c0fefc'  } }>
             <li class="list-group-item list-group-item-danger"> <h3>Payment Id : {paymentId}</h3> </li>
