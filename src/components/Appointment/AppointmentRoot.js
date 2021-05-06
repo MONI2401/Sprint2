@@ -32,7 +32,6 @@ function AppointmentRoot(){
         
             </div>
     )
-
 }
 
 export default AppointmentRoot;
