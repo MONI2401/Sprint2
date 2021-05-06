@@ -26,5 +26,4 @@ function DeleteappointmentWindow() {
     />}
   </div>
 }
-
 export default DeleteappointmentWindow;
