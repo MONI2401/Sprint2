@@ -39,37 +39,3 @@ export const addOrder = (orderData = {
 
 
 
-const _updateOrder = (orderId,updatedOrder) => ({
-    type:"UPDATE_ORDER",
-    orderId,
-    updatedOrder
-});
-
-
-export const updateOrder = (orderId,updatedOrder) => {
-    {
-    return (dispatch) => {
-        const order = {
-            orderId:orderId,
-            amount: updatedOrder.amount,
-            billingDate: updatedOrder.billingDate,
-            customer:
-            {
-            userId: updatedOrder.userId,
-            },
-            payment:
-            {
-            paymentId: updatedOrder.paymentId
-            }
-        
-        };
-        console.log(order);
-        return axios.put(`/updateOrder/${orderId}`,order).then(() => {
-            dispatch(_updateOrder(orderId,order));
-        }).catch(error => {
-            throw (error);
-        });
-    }
-};
-
-}

@@ -7,6 +7,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import { Link } from "react-router-dom";
 import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
+
 
 const OrderListing = () => {
   const dispatch = useDispatch();
@@ -20,7 +22,7 @@ const OrderListing = () => {
 
   useEffect(() => {
     fetchOrders();
-  }, []);
+  }, );
 
   console.log("Orders :", orders);
 
@@ -28,17 +30,14 @@ const OrderListing = () => {
     <div className="">
       <Grid>
         <TableContainer component={Paper}>
-          <Table border="1" bgcolor="white" class="table  table-bordered table-hover">
+          <Table border="2" bgcolor="#fffff1" class="table  table-bordered table-hover">
             <TableHead className="thead-dark">
               <TableRow>
                 <StyledTableCell>Order Id</StyledTableCell>
                 <StyledTableCell>Amount</StyledTableCell>
                 <StyledTableCell>Billing Date</StyledTableCell>
                 <StyledTableCell>User Id</StyledTableCell>
-               
-                {/* <StyledTableCell>Payment Id</StyledTableCell> */}
                 <StyledTableCell>View</StyledTableCell>
-                {/* <StyledTableCell>Update</StyledTableCell> */}
                 <StyledTableCell>Delete</StyledTableCell>
               </TableRow>
             </TableHead>
@@ -48,15 +47,14 @@ const OrderListing = () => {
                   const { orderId,amount,billingDate,customer} = order;
                   return (
                     <StyledTableRow key={orderId}>
-                      <td>{orderId}</td>
-                      <td>{amount}</td>
-                      <td>{billingDate}</td>
-                      <td>{customer.userId}</td>
+                      <td align="center">{orderId}</td>
+                      <td align="center">{amount}</td>
+                      <td align="center">{billingDate}</td>
+                      <td align="center">{customer.userId}</td>
                    
-                      {/* <td>{paymentMethod.paymentId}</td> */}
-                      <td><Link to={`/getOrderById/${orderId}`}><Button color="primary" variant="contained" className="btn btn-info">View </Button></Link></td>
-                      {/* <td><Link to={`/updateOrder/${orderId}`}><Button color="primary" variant="contained" className="btn btn-info">Update </Button></Link></td> */}
-                      <td><Link to={`/getOrderById/${orderId}`}><Button color="secondary" variant="contained" className="btn btn-secondary" >Delete </Button></Link> </td>
+                     
+                      <td align="center"><Link to={`/getOrderById/${orderId}`}><Button style={style}>View </Button></Link></td>
+                      <td align="center"><Link to={`/getOrderById/${orderId}`}><Button Button style={style}>Delete </Button></Link></td>
                     </StyledTableRow>
                   )
                 })
@@ -74,6 +72,7 @@ const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
     color: theme.palette.common.white,
+    textAlign:"center"
   },
   body: {
     fontSize: 14,
@@ -87,5 +86,16 @@ const StyledTableRow = withStyles((theme) => ({
     },
   },
 }))(TableRow);
+
+const style = {
+  background: 'linear-gradient(45deg, #05716c 30%, #1fbfb8 90%)',
+  borderRadius: 3,
+  border: 0,
+  color: 'white',
+  height: 48,
+  padding: '0 50px',
+  boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .3)',
+  marginLeft: "20px",
+};
 
 export default OrderListing;

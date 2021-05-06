@@ -9,18 +9,7 @@ const orderReducer =  (state = orderReducerDefaultState, action) => {
                 ...state,
                 action.order
             ];
-            case 'UPDATE_ORDER':
-            return state.map((order,orderId) => {
-                if (orderId === action.orderId){
-                    return {
-                        ...state,
-                        ...action.order
-                    };
-                }else {
-                    return order;
-                }
-            });
-
+            
            
             default:
                 return state;

@@ -5,7 +5,8 @@ import { getCustomerReducer,getCustomersReducer } from "./customer/CustomerReduc
 import { getPaymentReducer,getPaymentsReducer } from "./payment/PaymentReducerType";
 import  orderReducer  from "./order/orderReducer";
 import { getOrderReducer,getOrdersReducer } from "./order/OrderReducerType";
-
+import  carReducer  from "./car/CarReducer";
+import { getCarReducer,getCarsReducer } from "./car/CarReducerType";
 
 const rootReducer = combineReducers({
     paymentReducer,
@@ -17,6 +18,9 @@ const rootReducer = combineReducers({
     orderReducer,
     allOrders:getOrdersReducer,
     order:getOrderReducer,
+    carReducer,
+    allCars:getCarsReducer,
+    car:getCarReducer,
 });
 
 

@@ -6,10 +6,12 @@ import Box from '@material-ui/core/Box';
 import { Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
+
 const AddOrder = (props) => (
     <div style={{ backgroundColor: '#3edbf0' }}>
     <div className={useStyles.root}>
-         <Box color="white" bgcolor="black" p={1}> <h2 >Add Order</h2></Box>
+   
+         <Box color="white" bgcolor="#05716c" p={1}> <h2 >Add Order</h2></Box>
          <Paper elevation={3} >
         <AddOrderForm 
              onSubmitOrder={(state) => {

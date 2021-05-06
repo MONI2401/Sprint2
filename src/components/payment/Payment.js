@@ -3,11 +3,13 @@ import axios from 'axios'
 import { connect, useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router';
 import {  getPaymentById ,deletePaymentById} from "../../actions/payment/PaymentActionType";
-import { Button, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import {Link} from "react-router-dom"
 import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
+import Button from '../Buttons/Button'
+
 
 const Payment = () => {
     const {paymentId} = useParams();
@@ -27,7 +29,7 @@ const Payment = () => {
 
     useEffect(() => {
         loadPayment();
-    },[])
+    },)
 
     const loadPayment = async () => 
     {
@@ -44,27 +46,28 @@ const Payment = () => {
 
     return (
         <div className={useStyles.root} >
-         <Box color="white" bgcolor="black" p={1}> <h2 >Payment Details</h2></Box>
+           
+         <Box color="white" bgcolor="#05716c" p={1}> <h2 >Payment Details</h2></Box>
          <Paper elevation={3} >
-        <ul class="list-group-item " style={{ backgroundColor: '#c0fefc'  } }>
-            <li class="list-group-item list-group-item-danger"> <h3>Payment Id : {paymentId}</h3> </li>
-            <li class="list-group-item list-group-item-info"><h3>Payment Type : {payment.type}</h3> </li>
-            <li class="list-group-item list-group-item-info"><h3>Payment Status : {payment.status}</h3> </li>
-            <li class="list-group-item list-group-item-danger"><h3>Card Id : {payment.card.id}</h3> </li>
-            <li class="list-group-item list-group-item-info"><h3>Card Name : {payment.card.cardName}</h3> </li>
-            <li class="list-group-item list-group-item-info"><h3>Card Number :  {payment.card.cardNumber}</h3></li>
-            <li class="list-group-item list-group-item-info"><h3>Card Expiry : {payment.card.cardExpiry}</h3> </li>
-            <li class="list-group-item list-group-item-info"><h3>Card Cvv : {payment.card.cvv}</h3> </li>
+         <ul class="list-group-item">
+            <li class="list-group-item list-group-item-secondary"> <h3>Payment Id : {paymentId}</h3> </li>
+            <li class="list-group-item list-group-item-secondary"><h3>Payment Type : {payment.type}</h3> </li>
+            <li class="list-group-item list-group-item-secondary"><h3>Payment Status : {payment.status}</h3> </li>
+            <li class="list-group-item list-group-item-secondary"><h3>Card Id : {payment.card.id}</h3> </li>
+            <li class="list-group-item list-group-item-secondary"><h3>Card Name : {payment.card.cardName}</h3> </li>
+            <li class="list-group-item list-group-item-secondary"><h3>Card Number :  {payment.card.cardNumber}</h3></li>
+            <li class="list-group-item list-group-item-secondary"><h3>Card Expiry : {payment.card.cardExpiry}</h3> </li>
+            <li class="list-group-item list-group-item-secondary"><h3>Card Cvv : {payment.card.cvv}</h3> </li>
         </ul>
+        </Paper>
         <Grid container spacing={3}>
         <Grid item xs={3}>
-        <Button style={style} onClick={ () => deletePayment(paymentId)}>Delete </Button>
+        <Button text="Delete" onClick={ () => deletePayment(paymentId)}> </Button>
         </Grid>
         <Grid item xs={3}>
-        <Link to={`/payment`}><Button style={style} >Back To Home </Button ></Link>
+        <Link to={`/payment`}><Button text="Back To Home"> </Button ></Link>
         </Grid>
         </Grid>
-        </Paper>
         </div>
     )
 }
@@ -79,16 +82,5 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   }));
-
-const style = {
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-    borderRadius: 3,
-    border: 0,
-    color: 'white',
-    height: 48,
-    padding: '0 30px',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    marginLeft: "10px",
-};
 
 export default connect()(Payment);

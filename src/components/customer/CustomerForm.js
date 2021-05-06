@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import Button from '../Buttons/Button'
 import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -14,6 +14,10 @@ import { FormControl, TextField } from '@material-ui/core';
 import { Link } from "react-router-dom";
 import CustomerValidation from './CustomerValidations';
 import { withRouter } from "react-router-dom";
+import classes from '../design/AppointmentComponent.module.css'
+import Grid from "@material-ui/core/Grid";
+import Footer from '../design/Footer';
+
 
 class CustomerForm extends React.Component {
 
@@ -158,32 +162,38 @@ class CustomerForm extends React.Component {
 
     render() {
         return (
-            <Container>
+           
+            <Container className={classes.AddAppointment_root}>
+                <div className="bg_Cus_image">
            
                 <form onSubmit={this.onSubmit} >
 
                     <div>
-                        <Box color="primary.main"> <h2> CUSTOMER DETAILS :</h2></Box>
+                    <h2 style={{ textDecoration: "underline" }}> CUSTOMER DETAILS :</h2> <br/>
                     </div>
-                   
-                    <FormControl fullWidth>
+                
+                <FormControl fullWidth>
                     <TextField
-                         required id="standard-textarea" label="Customer Name" placeholder="Enter Customer Name"
+                         required id="standard-textarea" color="secondary" 
+                         variant="outlined" label="Customer Name" placeholder="Enter Customer Name" 
                         value={this.state.name} onChange={event => this.handleInputChangeCustomer(event, 'name')} />
-                        </FormControl>
+                        
                         {this.displayValidationErrors('name')}
                     <br />
-                    
+                    </FormControl>
                     <FormControl fullWidth>
                     <TextField
-                        required id="standard-number" label="Email ID" type="email"
+                        required id="standard-number" label="Email ID" type="email" color="secondary" 
+                        variant="outlined"  placeholder="Enter Customer Mail ID" 
                         value={this.state.email} onChange={this.onEmailChange} />  
-                        </FormControl>
+                       
                         <br />
+                        </FormControl>
 
                     <FormControl fullWidth>
                     <TextField
-                        required id="standard-number" label="Contact Number" type="number"
+                        required id="standard-number" label="Contact Number" type="number" color="secondary" 
+                        variant="outlined"  placeholder="Enter Customer Contact Number" 
                         value={this.state.contactNo} onChange={event => this.handleInputChangeCustomer(event, 'contactNo')} />
                         </FormControl>
                         {this.displayValidationErrors('contactNo')}
@@ -191,7 +201,8 @@ class CustomerForm extends React.Component {
                     
                     <FormControl fullWidth>
                     <TextField
-                         required id="standard-textarea" label="Date of Birth" type="date" 
+                         required id="standard-textarea" color="secondary" 
+                         variant="outlined" placeholder="Enter Customer DOB" label="Date of Birth" type="date" 
                         value={this.state.dob} onChange={event => this.handleInputChangeCustomer(event, 'dob')} InputLabelProps={{
                             shrink: true
                         }}  />
@@ -206,90 +217,86 @@ class CustomerForm extends React.Component {
                     
 
                     <div>
-                        <Box color="primary.main"> <h2> ADDRESS DETAILS :</h2></Box>
+                    <h2 style={{ textDecoration: "underline" }}> ADDRESS DETAILS :</h2><br/>
                     </div>
-
+                    <Grid item spacing={3}>
                     <FormControl fullWidth>
                     <TextField
-                         required id="standard-textarea" label="Door Number" 
+                         required id="standard-textarea" label="Door Number" color="primary" 
+                         variant="outlined" placeholder="Enter Customer Door No"
                         value={this.state.address.doorNo} onChange={this.onDoorNoChange} />
                         </FormControl>
+                        </Grid>
                     <br />
-                    
+                    <Grid item spacing={3}>
                     <FormControl fullWidth>
                     <TextField
-                         required id="standard-textarea" label="Street" 
+                         required id="standard-textarea" label="Street" color="primary" 
+                         variant="outlined" placeholder="Enter Street Name"
                         value={this.state.address.street} onChange={this.onStreetChange} />
                         </FormControl>
+                        </Grid>
                     <br />
-
+                    <Grid item spacing={3}>
                     <FormControl fullWidth>
                     <TextField
-                         required id="standard-textarea" label="Area" 
+                         required id="standard-textarea" label="Area" color="primary" 
+                         variant="outlined" placeholder="Enter Area Name"
                         value={this.state.address.area} onChange={this.onAreaChange} />
                         </FormControl>
+                        </Grid>
                     <br />
-                    
+                    <Grid item spacing={3}>
                     <FormControl fullWidth>
                     <TextField
-                         required id="standard-textarea" label="City" 
+                         required id="standard-textarea" label="City" color="primary" 
+                         variant="outlined" placeholder="Enter City Name"
                         value={this.state.address.city} onChange={this.onCityChange} />
                         </FormControl>
+                        </Grid>
                     <br />
-                    
+                    <Grid item spacing={3}>
                     <FormControl fullWidth>
                     <TextField
-                         required id="standard-textarea" label="State" 
+                         required id="standard-textarea" label="State" color="primary" 
+                         variant="outlined" placeholder="Enter State Name"
                         value={this.state.address.state} onChange={this.onStateChange} />
                         </FormControl>
+                        </Grid>
                     <br />
-                    
+                    <Grid item spacing={3}>
                     <FormControl fullWidth>
                     <TextField
-                         required id="standard-textarea" label="pinCode" type="number" 
+                         required id="standard-textarea" label="pinCode" type="number" color="primary" 
+                         variant="outlined" placeholder="Enter PinCode Name"
                         value={this.state.address.pinCode} onChange={event => this.handleInputChange(event, 'pinCode')} />
                         </FormControl>
                         {this.displayValidationErrors('pinCode')}
+                        </Grid>
                     <br />
                     <p> 
                          </p>
     
                     {this.state.error && <b className="m-1 text-danger">{this.state.error}</b>}
-
-                    <Button style={style} type="submit">Add Customer</Button>
-                    <Link to={`/customer`}><Button style={style} > Cancel</Button></Link>
+                    <div style={{display:"inline-flex"}}>
+                    <Button  text="Add Customer" onClick={this.onSubmit}></Button>&nbsp;&nbsp;&nbsp;
+                    <Link to={`/customer`}><Button text=" Cancel" ></Button></Link>
+                    <br/><br/><br/></div> 
 
                 </form>
-           
+                </div>
             </Container>
+           
+            
         )
     }
 
 }
 export default withRouter(CustomerForm);
 
-const useStyles = makeStyles((theme) => ({
-    container: {
-        display: 'flex',
-        flexWrap: 'wrap',
-    },
-    textField: {
-        marginLeft: theme.spacing(1),
-        marginRight: theme.spacing(1),
-        width: 200,
-    },
-}));
 
-const style = {
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-    borderRadius: 3,
-    border: 0,
-    color: 'white',
-    height: 48,
-    padding: '0 30px',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    marginLeft: "10px",
-};
+
+
 const errorStyle = {
     color: 'red'
 };

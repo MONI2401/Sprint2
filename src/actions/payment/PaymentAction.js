@@ -18,7 +18,7 @@ export const addPayment = (paymentData = {
     return (dispatch) => {
         const payment = {
             type: paymentData.type,
-            status: paymentData.status,
+            status: "Success",
             card:
             {
             cardName: paymentData.cardName,

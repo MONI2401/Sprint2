@@ -7,6 +7,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import { Link } from "react-router-dom";
 import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
 
 
 const CustomerListing = () => {
@@ -26,10 +27,13 @@ const CustomerListing = () => {
   console.log("Customers :", customers);
 
   return (
+  
     <div className="">
+      
+      <Box mx="auto" bgcolor="background.paper" p={1}>
       <Grid>
         <TableContainer component={Paper}>
-          <Table border="1" bgcolor="white" class="table  table-bordered table-hover">
+          <Table border="2" bgcolor="#fffff1" class="table  table-bordered table-hover">
             <TableHead className="thead-dark">
               <TableRow >
                 <StyledTableCell>Customer Id</StyledTableCell>
@@ -51,9 +55,9 @@ const CustomerListing = () => {
                       <td align="center">{name}</td>
                       <td align="center">{email}</td>
                       <td align="center">{contactNo}</td>
-                      <td align="center"><Link to={`/getCustomer/${userId}`}><Button color="primary" variant="contained" className="btn btn-info">View </Button></Link></td>
-                      <td align="center"><Link to={`/updateCustomer/${userId}`}><Button color="primary" variant="contained" className="btn btn-info">Update </Button></Link></td>
-                      <td align="center"><Link to={`/getCustomer/${userId}`}><Button color="secondary" variant="contained" className="btn btn-secondary">Delete </Button></Link></td>
+                      <td align="center"><Link to={`/getCustomer/${userId}`}><Button style={style}>View </Button></Link></td>
+                      <td align="center"><Link to={`/updateCustomer/${userId}`}><Button Button style={style}> Update </Button></Link></td>
+                      <td align="center"><Link to={`/getCustomer/${userId}`}><Button Button style={style}>Delete </Button></Link></td>
                     </StyledTableRow>
                   )
                 })
@@ -62,7 +66,7 @@ const CustomerListing = () => {
           </Table>
         </TableContainer>
       </Grid>
-
+      </Box>
     </div>
   );
 }
@@ -71,6 +75,7 @@ const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
     color: theme.palette.common.white,
+    textAlign:"center"
   
   },
   body: {
@@ -86,4 +91,15 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
+const style = {
+  background: 'linear-gradient(45deg, #05716c 30%, #1fbfb8 90%)',
+  borderRadius: 3,
+  border: 0,
+  color: 'white',
+  height: 48,
+  padding: '0 50px',
+  boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .3)',
+  marginLeft: "20px",
+};
 export default CustomerListing;
+

@@ -2,6 +2,79 @@
 
 
 
+.footerF {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+.samplebutton {
+    background:linear-gradient(to right,#24cfaa,#24cfaa);
+    width: 500px;
+    height:70px;
+    border:none;
+    font-size:1.3rem;
+    color:#fff;
+    cursor:pointer;
+    border-radius:0 25px;
+    position:absolute;
+    transition:all .6s;
+    text-align: center;
+   
+    
+
+  }
+  .bg_Pay_image{
+  
+    background-image: url('D:\React_Sprint\cars_online_sale\src\images\car_payment.png');
+    min-width: 10px;
+    min-height: 10px;
+    background-size: cover;
+    background-position: center ;
+   opacity:0.9px
+  }
+  .bg_Car_image{
+  
+    background-image: url('D:\React_Sprint\cars_online_sale\src\images\car1.png');
+    min-width: 10px;
+    min-height: 10px;
+    background-size: cover;
+    background-position: center ;
+   opacity:0.9px
+  }
+  .bg_Cus_image{
+  
+    background-image: url('D:\React_Sprint\cars_online_sale\src\images\customer_back.png');
+    min-width: 10px;
+    min-height: 10px;
+    background-size: cover;
+    background-position: center ;
+   opacity:0.9px
+  }
+  .bg_Ord_image{
+  
+    background-image: url('D:\React_Sprint\cars_online_sale\src\images\car_order.png');
+    min-width: 10px;
+    min-height: 10px;
+    background-size: cover;
+    background-position: center ;
+   opacity:0.9px
+  }
+  
+  .samplebutton:hover {
+   border-radius:25px 0;
+  }
+  
+  .samplebutton:before { 
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+   filter:blur(22px)
+  } 
 
 body{
     margin:0px;
@@ -23,10 +96,7 @@ button{
     outline: none;
     border: none;
 }
-input{
-    outline: none;
-    border: none;
-}
+
 .logo img{
     width: 1
     20px;

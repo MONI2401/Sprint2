@@ -1,14 +1,15 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+
 import { FormControl, TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
+
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 
-//import { Link } from "react-router-dom";
+import classes from '../design/AppointmentComponent.module.css'
 
+import Button from '../Buttons/Button'
 
 
 export default class AddOrderForm extends React.Component {
@@ -22,12 +23,7 @@ export default class AddOrderForm extends React.Component {
                 customer: {
                     userId:  "",
                 }
-               
-                // payment:{
-                //     paymentId:  "",
-                // },
-                // error: ""
-            
+                         
 
         }
     }
@@ -46,13 +42,6 @@ export default class AddOrderForm extends React.Component {
 
     
 
-    // onPaymentIdChange = (e) => {
-    //     this.setState(state =>({payment: {...state.payment,paymentId:e.target.value}}));
-    // }
-
-    // onCancel = () => {
-    //     this.props.history.push('/order');
-    // }
 
     onSubmit = event => {
 
@@ -65,7 +54,7 @@ export default class AddOrderForm extends React.Component {
                 amount: this.state.amount,
                 billingDate: this.state.billingDate,
                 userId: this.state.customer.userId,
-                // paymentId: this.state.payment.paymentId,
+               
                
             }
 
@@ -76,14 +65,16 @@ export default class AddOrderForm extends React.Component {
 
     render() {
         return (
-            <div >
-            <Container >
+
+            <Container className={classes.AddAppointment_root}>
+                <div className="bg_Ord_image">
+          
             
             <form onSubmit={this.onSubmit}  >
                         <div>
-                        <Box color="secondary.main" p={1}> <h2>ORDER DETAILS :</h2></Box>
+                        <h2 style={{ textDecoration: "underline" }}> ORDER DETAILS :</h2> <br/>
                        </div>
-                       <br />
+                       
                 <Grid item spacing={3}>
                 <FormControl fullWidth>  
                 <TextField
@@ -108,7 +99,6 @@ export default class AddOrderForm extends React.Component {
                         color="secondary" 
                         variant="outlined"
                         placeholder="DD/MM/YYYY"
-                        className={useStyles.textField}
                         value={this.state.billingDate}
                         onChange={this.onBillingDateChange}
                         InputLabelProps={{
@@ -134,56 +124,18 @@ export default class AddOrderForm extends React.Component {
                         </Grid>
                     <br />
 
-
-                    {/* <Grid item spacing={3}>
-                    <FormControl fullWidth>
-                    <TextField
-                         required id="standard-number"
-                         label="Payment Id"
-                         type="number"
-                         color="secondary" 
-                         variant="outlined"
-                         placeholder="Enter Payment Id"
-                        // value={this.state.payment.paymentId} onChange={this.onPaymentIdChange}
-                         />
-                    </FormControl >
-                    </Grid> */}
                         <br />
                         
                         {this.state.error && <b className="m-1 text-danger">{this.state.error}</b>}
-
-                        <Button style={style} type="submit">Add Order</Button>
-                        <Link to={`/order`}><Button style={style} > Cancel</Button></Link>
-
+                        <div style={{display:"inline-flex"}}>
+                        <Button  text="Add Order" onClick={this.onSubmit}></Button>&nbsp;&nbsp;&nbsp;
+                      <Link to={`/order`}><Button text= "Cancel"></Button></Link>
+                         </div>
                     </form>
-               
+               </div>
             </Container>
-            </div>
+           
         )
     }
 
 }
-
-const useStyles = makeStyles((theme) => ({
-    container: {
-        display: 'flex',
-        flexWrap: 'wrap',
-    },
-    textField: {
-        marginLeft: theme.spacing(1),
-        marginRight: theme.spacing(1),
-        width: 200,
-    },
-}));
-
-const style = {
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-    borderRadius: 3,
-    border: 0,
-    color: 'black',
-    height: 48,
-    padding: '0 30px',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    marginLeft: "300px",
-};
-

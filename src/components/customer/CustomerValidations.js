@@ -38,11 +38,11 @@ const CustomerValidation = {
         rules: [
           {
             test: (value) => {
-              let currentDate = new Date("2021-05-07");
+              let currentDate = new Date("2000-05-07");
               let inputDate = new Date(value);
               return inputDate < currentDate; 
             },
-            message: 'Date of Birth must be lesser than current date',
+            message: 'Date of Birth must be lesser ',
           },
         ],
         errors: [],

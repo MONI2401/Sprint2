@@ -6,9 +6,11 @@ import Box from '@material-ui/core/Box';
 import { Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
+
 const UpdateCustomer = (props) => (
     <div className={useStyles.root}>
-        <Box color="white" bgcolor="palevioletred" p={1}> <h2>Update Customer</h2></Box>
+     
+        <Box color="white" bgcolor="#05716c" p={1}> <h2>Update Customer</h2></Box>
         <Paper elevation={3} >
         
         <UpdateCustomerForm 

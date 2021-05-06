@@ -6,6 +6,7 @@ import UpdateCustomer from '../../components/customer/UpdateCustomer';
 import Customer from '../../components/customer/customer';
 
 
+
 const CustomerRouter = () => (
     <BrowserRouter>
          <div>
@@ -16,6 +17,7 @@ const CustomerRouter = () => (
                  <Route path={`/getCustomer/:userId`} component={Customer} />   
 
              </Switch>
+           
          </div>
     </BrowserRouter>
 );

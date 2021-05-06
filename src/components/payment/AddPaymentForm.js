@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import Button from '../Buttons/Button'
 import { FormControl, TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
@@ -10,6 +10,9 @@ import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import PaymentValidation from './PaymentValidation';
 import { withRouter } from "react-router-dom";
+import classes from '../design/AppointmentComponent.module.css'
+import Grid from "@material-ui/core/Grid";
+import { Link } from "react-router-dom";
 
 
 
@@ -110,6 +113,7 @@ import { withRouter } from "react-router-dom";
 
         console.log("Submitted");
         console.log(this.state);
+        alert("Payment Added");
         event.preventDefault();
         this.props.onSubmitPayment(
             {
@@ -129,38 +133,34 @@ import { withRouter } from "react-router-dom";
 
     render() {
         return (
-            <Container style={{ backgroundColor: '#c0fefc'  } } >
-                <div  >
+            <Container className={classes.AddAppointment_root}>
+                <div className="bg_Pay_image">
 
-                    <form onSubmit={event => this.onSubmit(event)} >
-                        <div>
-                            <Box color="primary.main" p={1}> <h2>Payment Details :</h2></Box>
-                        </div>
-                        <br />
-                        <FormControl fullWidth>
-                            <FormLabel component="legend">Payment Type</FormLabel>
-                            <RadioGroup required aria-label="Payment Status" name="Payment Type" value={this.state.type} onChange={this.onTypeChange}>
+                <form onSubmit={this.onSubmit} >
+                    <div>
+                    <h2 style={{ textDecoration: "underline" }}> PAYMENT DETAILS :</h2> <br/>
+                    </div>
+                
+                  <FormControl fullWidth>
+                  <FormControl fullWidth ><h3 style={{textAlign:"left"}}>Payment Type</h3>
+                            <RadioGroup  name="Payment Type" value={this.state.type} onChange={this.onTypeChange}>
                                 <FormControlLabel value="Credit" control={<Radio required={true} />} label="Credit" />
                                 <FormControlLabel value="Debit" control={<Radio required={true} />} label="Debit" />
-                            </RadioGroup>
+                            </RadioGroup></FormControl>
+                           
+                            
                         </FormControl>
                         <br />
                         <br />
-                        <FormControl fullWidth>
-                            <FormLabel component="legend">Payment Status</FormLabel>
-                            <RadioGroup required aria-label="Payment Status" name="Payment Status" value={this.state.status} onChange={this.onStatusChange}>
-                                <FormControlLabel value="Success" control={<Radio required={true} />} label="Success" />
-                                <FormControlLabel value="Pending" control={<Radio required={true} />} label="Pending" />
-                            </RadioGroup>
-                        </FormControl>
-                        <br />
+                        
                         <br />
                         <div>
-                            <Box color="primary.main"> <h2>Card Details :</h2></Box>
+                         <h2 style={{ textDecoration: "underline" }}> CARD DETAILS :</h2><br/>
                         </div>
                         <FormControl fullWidth >
                             <TextField
-                                required id="standard-textarea" label="Card Name" placeholder="Enter Card Name"
+                                required id="standard-textarea" color="secondary" 
+                                variant="outlined" label="Card Name" placeholder="Enter Name On The Card" color="primary"
                                 value={this.state.card.cardName} onChange={event => this.handleInputChange(event, 'cardName')} />
                         </FormControl>
                         {this.displayValidationErrors('cardName')}
@@ -170,10 +170,9 @@ import { withRouter } from "react-router-dom";
                         <FormControl fullWidth>
                             <TextField
                                 required id="standard-number" label="Card Number" type="number"
+                                variant="outlined"  placeholder="Enter 16 digit Number" color="primary"
                                 value={this.state.card.cardNumber} onChange={event => this.handleInputChange(event, 'cardNumber')}
-                                InputLabelProps={{
-                                    shrink: true
-                                }} />
+                                 />
                         </FormControl>
                         {this.displayValidationErrors('cardNumber')}
                         <br />
@@ -183,6 +182,9 @@ import { withRouter } from "react-router-dom";
                                 required id="date"
                                 label="Card Expiry"
                                 type="date"
+                                placeholder="Enter Expiry Date"
+                                color="primary"
+                                variant="outlined"
                                 defaultValue="2021-05-06"
                                 className={useStyles.textField}
                                 value={this.state.card.cardExpiry}
@@ -197,15 +199,19 @@ import { withRouter } from "react-router-dom";
 
                         <FormControl fullWidth>
                             <TextField
-                                required id="standard-number" label="Cvv" type="number"
+                                required id="standard-number" label="Cvv" type="number" placeholder="Enter Cvv" variant="outlined" color="primary"
                                 value={this.state.card.cvv} onChange={event => this.handleInputChange(event, 'cvv')}
                              />
                         </FormControl >
                         {this.displayValidationErrors('cvv')}
                         <br />
                         <br />
-                        <Button style={style}  type="submit"  >Add Payment & Card </Button>
-                        <Button style={style} onClick={this.onCancel}> Cancel</Button>
+                        
+                        {this.state.error && <b className="m-1 text-danger">{this.state.error}</b>}
+                        <div style={{display:"inline-flex"}}>
+                    <Button  text="Add Payment & Card" onClick={this.onSubmit}></Button>
+                    <Link to={`/payment`}><Button text=" Cancel" ></Button></Link>
+                    </div>
                     </form>
                 </div>
             </Container>
@@ -227,22 +233,10 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const style = {
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-    borderRadius: 3,
-    border: 0,
-    color: 'white',
-    height: 48,
-    padding: '0 30px',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    marginLeft: "10px",
-};
+
 
 const errorStyle = {
     color: 'red'
 };
-
-
-// className={`btn  ${this.isFormValid() ? 'active' : 'disabled'}`}
 
 
