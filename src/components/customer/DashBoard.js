@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import React from 'react';
 import CustomerListing from './CustomerListing';
 import Box from '@material-ui/core/Box';
-import Footer from '../design/Footer';
+
 
 import Button from '../Buttons/Button'
 
@@ -27,7 +27,7 @@ function DashBoard() {
         </div>
                 </Box>
                 <br/>
-             <Footer/>  
+ 
         </div>
 
     );

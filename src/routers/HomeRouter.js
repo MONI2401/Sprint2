@@ -23,16 +23,9 @@ import CarDashBoard from '../components/cars/CarDashBoard';
 import AddCar from '../components/cars/AddCar';
 import Car from '../components/cars/car';
 import NotFound from '../components/customer/NotFound';
-import  Navbar from '../components/design/Navbar'
-
-
-
-
-
-
 import Home from '../components/design/Home'
 import AppointmentRoot from '../components/Appointment/AppointmentRoot';
-import Login from '../routers/login/SignUpRouter'
+
 
 const HomeRouter = () => (
     <Router>
@@ -71,7 +64,7 @@ const HomeRouter = () => (
              </Switch>
           
          </div>
-       
+     
          </div>
     </Router>
 );

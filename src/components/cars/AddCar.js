@@ -22,7 +22,7 @@ const AddCar = (props) => (
         <CarForm 
              onSubmitCar={(state) => {
                  props.dispatch(addCar(state));
-                 props.history.push('/');
+                 props.history.push('/car');
              }} />
         
     </div>

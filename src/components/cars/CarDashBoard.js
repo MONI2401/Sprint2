@@ -27,7 +27,7 @@ function CarDashBoard() {
        </div>
                </Box>
                <br/>
-            <Footer/>  
+           
        </div>
 
    );

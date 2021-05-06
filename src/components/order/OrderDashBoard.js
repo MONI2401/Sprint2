@@ -15,7 +15,7 @@ function DashBoard() {
 
    const history = useHistory();
    return (
-        <div>
+        <div >
         <Box color="danger.main" component="div" display="inline"  > <h3><br/>ORDER DETAILS:</h3></Box> <br/>
        <Grid   >
            <OrderListing />
@@ -25,7 +25,7 @@ function DashBoard() {
 <Button text="Add Order"  onClick={() => history.push("/addOrder")}></Button><br/></h3>
        </Box></div>
        <br/>
-    <Footer/>  
+   
 </div>
 
    );

@@ -13,8 +13,7 @@ import Box from '@material-ui/core/Box';
 const CarListing = () => {
   const dispatch = useDispatch();
   const cars = useSelector((state) => state.allCars.cars);
-  console.log(cars)
-  console.log("hi")
+ 
 
   const fetchCars = async () => {
     const result = await axios.get('http://localhost:9082/api/cars24/getAllCars').catch((err) => { console.log("Error ", err); });

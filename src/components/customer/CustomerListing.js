@@ -56,7 +56,7 @@ const CustomerListing = () => {
                       <td align="center">{email}</td>
                       <td align="center">{contactNo}</td>
                       <td align="center"><Link to={`/getCustomer/${userId}`}><Button style={style}>View </Button></Link></td>
-                      <td align="center"><Link to={`/updateCustomer/${userId}`}><Button Button style={style}> Update </Button></Link></td>
+                      <td align="center"><Link to={`/updateCustomer`}><Button Button style={style}> Update </Button></Link></td>
                       <td align="center"><Link to={`/getCustomer/${userId}`}><Button Button style={style}>Delete </Button></Link></td>
                     </StyledTableRow>
                   )

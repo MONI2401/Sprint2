@@ -7,7 +7,7 @@ import GetAllAppointments from './AllAppointmentList'
 import GetOpenAppointments from './AllOpenAppointment'
 import Navbar from './Navbar';
 import classes from './AppointmentComponent.module.css'
-import Footer from '../design/Footer';
+
 
 function AppointmentRoot(){
 
@@ -29,7 +29,7 @@ function AppointmentRoot(){
 
                 </div>
             </Router>
-            <div> <Footer/></div>
+        
             </div>
     )
 

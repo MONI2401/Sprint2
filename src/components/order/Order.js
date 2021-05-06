@@ -49,7 +49,7 @@ const Order = () => {
     }
     const  deleteOrder = async (orderId) => {
         await axios.delete(`http://localhost:9082/api/cars24/removeOrder/${orderId}`).catch((err) => {console.log("Error" , err);});
-       dispatch(deleteOrderById(orderId));
+       //dispatch(deleteOrderById(orderId));
        alert("Deleted Successfully");
        history.push('/order')
      }

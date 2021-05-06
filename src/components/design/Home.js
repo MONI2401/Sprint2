@@ -13,7 +13,7 @@ function Home(){
       <About/>
       <Agent/>
       <Featuredcar/>
-      <Contact/>
+     <Contact/>
      
       
   

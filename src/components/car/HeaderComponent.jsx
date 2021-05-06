@@ -14,7 +14,7 @@ class HeaderComponent extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{height:"10%"}}>
             
                 <Link to={'/dashboard'}>
                 

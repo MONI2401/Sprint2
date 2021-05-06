@@ -185,29 +185,31 @@ class CustomerUpdateForm extends React.Component {
 
                     <FormControl fullWidth>
                     <TextField
-                         required id="standard-textarea" label="Customer ID" color="primary"  placeholder="Enter Customer ID" variant="outlined"
+                         required id="standard-textarea" label="Customer ID" color="secondary"  placeholder="Enter Customer ID" variant="outlined"
                         value={this.state.userId} onChange={this.onCustomerIdChange} />
                         </FormControl>
-                    <br />
-                    
+                    <br /><br/>
+                    <Grid item spacing={3}>
                     <FormControl fullWidth>
                     <TextField
-                         required id="standard-textarea" label="Customer Name" color="primary"  placeholder="Enter Customer Name" variant="outlined"
+                         required id="standard-textarea" label="Customer Name" color="secondary"  placeholder="Enter Customer Name" variant="outlined"
                         value={this.state.name} onChange={event => this.handleInputChangeCustomer(event, 'name')} />
                         </FormControl>
                         {this.displayValidationErrors('name')}
                     <br />
-                    
+                    </Grid >
+                    <Grid item spacing={3}>
                     <FormControl fullWidth>
                     <TextField
-                        required id="standard-number" label="Email ID" color="primary" 
-                        value={this.state.email} onChange={this.onEmailChange} />  
-                        </FormControl>
-                        <br />
+                         required id="standard-textarea" label="Customer E-mail" color="secondary"  placeholder="Enter Customer E-mail" variant="outlined"
+                        value={this.state.email} onChange={this.onEmailChange} />
+                        </FormControl><br/></Grid>
+                        
+                    <br />
 
                     <FormControl fullWidth>
                     <TextField
-                        required id="standard-number" label="Contact Number" type="number"color="primary"  variant="outlined" placeholder="Enter Customer Contact Number"
+                        required id="standard-number" label="Contact Number" type="number"color="secondary"  variant="outlined" placeholder="Enter Customer Contact Number"
                         value={this.state.contactNo} onChange={event => this.handleInputChangeCustomer(event, 'contactNo')} />
                         </FormControl>
                         {this.displayValidationErrors('contactNo')}
@@ -215,7 +217,7 @@ class CustomerUpdateForm extends React.Component {
                     
                     <FormControl fullWidth>
                     <TextField
-                         required id="standard-textarea" label="Date of Birth" type="date"color="primary"  variant="outlined"
+                         required id="standard-textarea" label="Date of Birth" type="date"color="secondary"  variant="outlined"
                         value={this.state.dob} onChange={event => this.handleInputChangeCustomer(event, 'dob')} InputLabelProps={{
                             shrink: true
                         }}  />
@@ -280,8 +282,8 @@ class CustomerUpdateForm extends React.Component {
     
                     {this.state.error && <b className="m-1 text-danger">{this.state.error}</b>}
                     <div style={{display:"inline-flex"}}>
-                    <Button  text="Update Customer" ></Button>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <Button text=" Cancel" onChange={this.onCancel}></Button>
+                    <Button  text="Update Customer" onClick={this.onSubmit}></Button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <Button text=" Cancel" onClick={this.onCancel}></Button>
                     <br/><br/><br/></div>
          
 

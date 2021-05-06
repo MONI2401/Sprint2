@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import React from 'react';
 import PaymentListing from './PaymentListing';
 import Box from '@material-ui/core/Box';
-import Footer from '../design/Footer';
+
 
 import Button from '../Buttons/Button'
 
@@ -27,7 +27,7 @@ function DashBoard() {
         <Button text="Add Payment"  onClick={() => history.push("/addPayment")}></Button></h3></div>
                 </Box>
                 <br/>
-             <Footer/>  
+      
         </div>
     );
 }

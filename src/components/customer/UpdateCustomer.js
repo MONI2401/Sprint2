@@ -19,7 +19,7 @@ const UpdateCustomer = (props) => (
                 props.dispatch(updateCustomer(customer));
                 props.history.push('/customer');
             }}
-        /> 
+        />
         </Paper>
     </div>
 )

@@ -15,9 +15,9 @@ const OrderListing = () => {
   const orders = useSelector((state) => state.allOrders.orders);
 
   const fetchOrders = async () => {
-    const result = await axios.get('http://localhost:9082/api/cars24/getAllOrder').catch((err) => { console.log("Error ", err); });
-    console.log(result);
-    dispatch(getOrders(result.data));
+    const result = await axios.get('http://localhost:9082/api/cars24/getAllOrder').then((response)=>dispatch(getOrders(response.data))).catch((err) => { console.log("Error ", err); });
+    //console.log(result);
+    //dispatch(getOrders(result.data));
   };
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const OrderListing = () => {
   console.log("Orders :", orders);
 
   return (
-    <div className="">
+    <div  style={{margin:"10px"}}>
       <Grid>
         <TableContainer component={Paper}>
           <Table border="2" bgcolor="#fffff1" class="table  table-bordered table-hover">

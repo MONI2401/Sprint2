@@ -83,6 +83,7 @@ export const updateCustomer = (updatedCustomer) => {
         console.log(customer);
         return axios.put(`/updateCustomer`,customer).then(() => {
             dispatch(_updateCustomer(customer));
+          
         }).catch(error => {
             throw (error);
         });
