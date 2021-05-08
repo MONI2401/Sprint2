@@ -7,7 +7,7 @@ import Payment from '../components/payment/Payment';
 import AddCustomer from '../components/customer/AddCustomer';
 import DashBoard from '../components/customer/DashBoard';
 import UpdateCustomer from '../components/customer/UpdateCustomer';
-import Customer from '../components/customer/customer';
+import Customer from '../components/customer/Customer';
 import OrderDashBoard from '../components/order/OrderDashBoard';
 import AddOrder from "../components/order/AddOrder";
 import Order from '../components/order/Order';

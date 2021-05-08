@@ -10,6 +10,12 @@ import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 
 
+// /**
+// *Author: Shivam Dwivedi
+// *Date  : 06-05-2021
+// *Description:This is Car Container
+// **/
+
 const CarListing = () => {
   const dispatch = useDispatch();
   const cars = useSelector((state) => state.allCars.cars);
@@ -45,7 +51,7 @@ const CarListing = () => {
                 <StyledTableCell>variant</StyledTableCell>
                 <StyledTableCell>registrationYear</StyledTableCell>
                  <StyledTableCell>registrationState</StyledTableCell>
-                 <StyledTableCell>userId</StyledTableCell>
+                 {/* <StyledTableCell>userId</StyledTableCell> */}
                 <StyledTableCell>View</StyledTableCell>
                 {/* <StyledTableCell>Update</StyledTableCell>
                 <StyledTableCell>Delete</StyledTableCell> */}
@@ -63,7 +69,7 @@ const CarListing = () => {
                       <td align="center">{variant}</td>
                        <td align="center">{registrationYear}</td>
                       <td align="center">{registrationState}</td>
-                      <td align="center">{customer.userId}</td>
+                      {/* <td align="center">{customer.userId}</td> */}
 
                       <td align="center"><Link to={`/getCar/${carId}`}><Button style={style}>View </Button></Link></td>
                      

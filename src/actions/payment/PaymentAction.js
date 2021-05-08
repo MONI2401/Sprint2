@@ -48,7 +48,7 @@ export const updatePayment = (paymentId,updatedPayment) => {
         const payment = {
             paymentId:paymentId,
             type: updatedPayment.type,
-            status : updatedPayment.status,
+            status : "Success",
             card:{
                 id:updatedPayment.id,
                 cardName:updatedPayment.cardName,
@@ -59,6 +59,7 @@ export const updatePayment = (paymentId,updatedPayment) => {
         };
         console.log(payment);
         return axios.put(`/updatePayment/${paymentId}`,payment).then(() => {
+            console.log(payment)
             dispatch(_updatePayment(paymentId,payment));
         }).catch(error => {
             throw (error);

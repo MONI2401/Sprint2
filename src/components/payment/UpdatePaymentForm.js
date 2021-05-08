@@ -5,12 +5,17 @@ import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
 import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
 import PaymentValidation from './PaymentValidation';
 import { withRouter } from "react-router-dom";
 import classes from '../design/AppointmentComponent.module.css';
+
+// /**
+//  * Author: Avinash 
+//  * Date:-06-05-2021 
+//  * Description:This is Payment Container 
+// **/
+
 class UpdatePaymentForm extends React.Component {
 
 
@@ -114,7 +119,8 @@ class UpdatePaymentForm extends React.Component {
         e.preventDefault();
         console.log("Updated");
         alert("Payment Details Updated");
-        console.log(this.state);
+        // console.log("hello")
+        // console.log(this.state);
         this.props.onSubmitPayment(
             {
                 type: this.state.type,
@@ -142,19 +148,19 @@ class UpdatePaymentForm extends React.Component {
                         <FormControl fullWidth>
                             <h3 style={{textAlign:"left"}}>Payment Type</h3>
                             <RadioGroup required aria-label="Payment Status" name="Payment Type" value={this.state.type} onChange={this.onTypeChange}>
-                                <FormControlLabel value="Credit" control={<Radio required={true} />} label="Credit" />
-                                <FormControlLabel value="Debit" control={<Radio required={true} />} label="Debit" />
+                                <FormControlLabel value="Credit"  control={<Radio color="primary" required={true} />} label="Credit" />
+                                <FormControlLabel value="Debit" control={<Radio  color="primary" required={true} />} label="Debit" />
                             </RadioGroup>
                         </FormControl>
                         <br />
                         <br />
                         
                         <div>
-                        <h2 style={{ textDecoration: "underline" }}>Card Details :</h2>
+                        <h2 style={{ textDecoration: "underline" }}>Card Details :</h2><br/>
                         </div>
                         <FormControl fullWidth>
                             <TextField
-                                required id="standard-number" label="Card Id" type="number" placeholder="Enter Payment ID"
+                                required id="standard-number" label="Card Id" type="number" placeholder="Enter Payment ID" color="primary" variant="outlined"
                                 value={this.state.card.id} onChange={event => this.handleInputChange(event, 'id')}
                                       />
                         </FormControl >
@@ -162,7 +168,7 @@ class UpdatePaymentForm extends React.Component {
                         <br />
                         <FormControl fullWidth>
                             <TextField
-                                required id="standard-textarea" label="Card Name" placeholder="Enter The Name On The Card"
+                                required id="standard-textarea" label="Card Name" placeholder="Enter The Name On The Card" color="primary" variant="outlined"
                                 value={this.state.card.cardName} onChange={event => this.handleInputChange(event, 'cardName')} />
                         </FormControl>
                         {this.displayValidationErrors('cardName')}
@@ -171,7 +177,7 @@ class UpdatePaymentForm extends React.Component {
 
                         <FormControl fullWidth>
                             <TextField
-                                required id="standard-number" label="Card Number" type="number" placeholder="Enter 16 Digit Card"
+                                required id="standard-number" label="Card Number" type="number" placeholder="Enter 16 Digit Card" color="primary" variant="outlined"
                                 value={this.state.card.cardNumber} onChange={event => this.handleInputChange(event, 'cardNumber')}
                                 />
                         </FormControl>
@@ -185,6 +191,7 @@ class UpdatePaymentForm extends React.Component {
                                 type="date"
                                 defaultValue="2021-04-29"
                                 placeholder="Enter Expiry Date"
+                                color="primary" variant="outlined"
                                 className={useStyles.textField}
                                 value={this.state.card.cardExpiry}
                                 onChange={event => this.handleInputChange(event, 'cardExpiry')}
@@ -199,7 +206,7 @@ class UpdatePaymentForm extends React.Component {
                         <FormControl fullWidth>
                             <TextField
                                 required id="standard-number" label="Cvv" type="number" placeholder="Enter Cvv"
-                                value={this.state.card.cvv} onChange={event => this.handleInputChange(event, 'cvv')}
+                                value={this.state.card.cvv} onChange={event => this.handleInputChange(event, 'cvv')} color="primary" variant="outlined"
                                  />
                         </FormControl >
                         {this.displayValidationErrors('cvv')}
@@ -207,8 +214,8 @@ class UpdatePaymentForm extends React.Component {
                         <br />
                         {this.state.error && <b className="m-1 text-danger">{this.state.error}</b>}
                         <div style={{display:"inline-flex"}}>
-                        <Button text="UPDATE PAYMENT"></Button>
-                        <Button text="Cancel" onChange={this.onCancel}> </Button></div>
+                        <Button text="UPDATE PAYMENT" onClick={this.onSubmit}></Button>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <Button text="Cancel" onClick={this.onCancel}> </Button><br/></div>
 
                     </form>
                     </div>
@@ -231,16 +238,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const style = {
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-    borderRadius: 3,
-    border: 0,
-    color: 'white',
-    height: 48,
-    padding: '0 30px',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    marginLeft: "10px",
-};
+
 
 const errorStyle = {
     color: 'red'

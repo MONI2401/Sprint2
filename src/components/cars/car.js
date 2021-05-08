@@ -9,7 +9,13 @@ import Box from '@material-ui/core/Box';
 import { Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '../Buttons/Button'
-import classes from '../design/AppointmentComponent.module.css'
+
+
+// /**
+// *Author: Shivam Dwivedi
+// *Date  : 06-05-2021
+// *Description:This is Car Container
+// **/
 
 
 const Car = () => {
@@ -73,7 +79,7 @@ const Car = () => {
             <li class="list-group-item list-group-item-secondary"><h3>VARIANT : {car.variant}</h3> </li>
             <li class="list-group-item list-group-item-secondary"><h3>REGISTRATION YEAR : {car.registrationYear}</h3> </li>
             <li class="list-group-item list-group-item-secondary"><h3>REGISTRATION STATE:  {car.registrationState}</h3></li>
-            <li class="list-group-item list-group-item-secondary"><h3>User Id : {car.customer.userId}</h3> </li>
+            {/* <li class="list-group-item list-group-item-secondary"><h3>User Id : {car.customer.userId}</h3> </li>
             <li class="list-group-item list-group-item-secondary"><h3>Name : {car.customer.name}</h3> </li>
             <li class="list-group-item list-group-item-secondary"><h3>Email : {car.customer.email}</h3> </li>
             <li class="list-group-item list-group-item-secondary"><h3>Contact No. : {car.customer.contactNo}</h3> </li>
@@ -84,7 +90,7 @@ const Car = () => {
             <li class="list-group-item list-group-item-secondary"><h3>Area : {car.customer.address.area}</h3> </li>
             <li class="list-group-item list-group-item-secondary"><h3>city : {car.customer.address.city}</h3> </li>
             <li class="list-group-item list-group-item-secondary"><h3>State : {car.customer.address.state}</h3> </li>
-            <li class="list-group-item list-group-item-secondary"><h3>PinCode : {car.customer.address.pinCode}</h3> </li>
+            <li class="list-group-item list-group-item-secondary"><h3>PinCode : {car.customer.address.pinCode}</h3> </li> */}
             
         </ul>
         </Paper>

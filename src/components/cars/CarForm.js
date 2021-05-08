@@ -7,7 +7,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
 
 
-
+// /**
+// *Author: Shivam Dwivedi
+// *Date  : 06-05-2021
+// *Description:This is Car Container
+// **/
 
 
 export default class CarForm extends React.Component {
@@ -49,9 +53,9 @@ onRegistrationYearChange = (e) => {
 onRegistrationStateChange = (e) => {
         this.setState({  registrationState: e.target.value });
     }
-    onUserIdChange = (e) => {
-        this.setState(state =>({customer: {...state.customer,userId:e.target.value}}));
-    }
+    // onUserIdChange = (e) => {
+    //     this.setState(state =>({customer: {...state.customer,userId:e.target.value}}));
+    // }
     
 
 
@@ -68,7 +72,7 @@ onRegistrationStateChange = (e) => {
                 variant: this.state.variant,
                 registrationYear: this.state. registrationYear,
                 registrationState: this.state. registrationState,                
-                userId: this.state.customer.userId,
+                // userId: this.state.customer.userId,
                
                
             }
@@ -133,7 +137,7 @@ onRegistrationStateChange = (e) => {
   </FormControl >
                         </Grid>
                     <br />
-                    <Grid item spacing={3}>
+                    {/* <Grid item spacing={3}>
                     <FormControl fullWidth>
                     <TextField
                         required id="standard-number"
@@ -145,7 +149,7 @@ onRegistrationStateChange = (e) => {
                         value={this.state.customer.userId} onChange={this.onUserIdChange}
                          />
                         </FormControl >
-                        </Grid>
+                        </Grid> */}
 
 
 

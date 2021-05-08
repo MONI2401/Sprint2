@@ -6,6 +6,12 @@ import Box from '@material-ui/core/Box';
 import { Paper } from '@material-ui/core';
 
 
+// /**
+//  * Author: Avinash 
+//  * Date:-06-05-2021 
+//  * Description:This is Payment Container 
+// **/
+
 const AddPayment = (props) => (
   <div>
        
@@ -19,9 +25,9 @@ const AddPayment = (props) => (
 
   </p> 
   <AddPaymentForm 
-       onSubmitCustomer={(state) => {
+       onSubmitPayment={(state) => {
            props.dispatch(addPayment(state));
-           props.history.push('/');
+           props.history.push('/payment');
        }} />
   
 </div>

@@ -5,16 +5,17 @@ import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
 import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
 import PaymentValidation from './PaymentValidation';
 import { withRouter } from "react-router-dom";
 import classes from '../design/AppointmentComponent.module.css'
-import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 
-
+// /**
+//  * Author: Avinash 
+//  * Date:-06-05-2021 
+//  * Description:This is Payment Container 
+// **/
 
  class AddPaymentForm extends React.Component {
 
@@ -109,25 +110,25 @@ import { Link } from "react-router-dom";
         this.props.history.push('/payment');
     }
 
-    onSubmit = event => {
-
+    onSubmit = (e) => 
+    {
+        e.preventDefault();
         console.log("Submitted");
+        alert("Payment Added Successfully");
         console.log(this.state);
-        alert("Payment Added");
-        event.preventDefault();
-        this.props.onSubmitPayment(
+        this.props.onSubmitPayment
+        (
             {
                 type: this.state.type,
-                status: this.state.status,
+                status: "Success",
                 cardName: this.state.card.cardName,
                 cardNumber: this.state.card.cardNumber,
                 cardExpiry: this.state.card.cardExpiry,
                 cvv: this.state.card.cvv,
             }
-
-        );
- 
-    }
+            );
+            
+        }
 
 
 
@@ -144,8 +145,8 @@ import { Link } from "react-router-dom";
                   <FormControl fullWidth>
                   <FormControl fullWidth ><h3 style={{textAlign:"left"}}>Payment Type</h3>
                             <RadioGroup  name="Payment Type" value={this.state.type} onChange={this.onTypeChange}>
-                                <FormControlLabel value="Credit" control={<Radio required={true} />} label="Credit" />
-                                <FormControlLabel value="Debit" control={<Radio required={true} />} label="Debit" />
+                                <FormControlLabel value="Credit" control={<Radio color="primary" required={true} />} label="Credit" />
+                                <FormControlLabel value="Debit" control={<Radio color="primary" required={true} />} label="Debit" />
                             </RadioGroup></FormControl>
                            
                             
@@ -209,8 +210,8 @@ import { Link } from "react-router-dom";
                         
                         {this.state.error && <b className="m-1 text-danger">{this.state.error}</b>}
                         <div style={{display:"inline-flex"}}>
-                    <Button  text="Add Payment & Card" onClick={this.onSubmit}></Button>
-                    <Link to={`/payment`}><Button text=" Cancel" ></Button></Link>
+                    <Button  text="Add Payment & Card" onClick={this.onSubmit}></Button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <Link to={`/payment`}><Button text=" Cancel" onClick={this.onCancel}></Button></Link>
                     </div>
                     </form>
                 </div>

@@ -10,6 +10,11 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '../Buttons/Button'
 
+// /**
+//  * Author: Avinash 
+//  * Date:-06-05-2021 
+//  * Description:This is Payment Container 
+// **/
 
 const Payment = () => {
     const {paymentId} = useParams();
@@ -60,14 +65,12 @@ const Payment = () => {
             <li class="list-group-item list-group-item-secondary"><h3>Card Cvv : {payment.card.cvv}</h3> </li>
         </ul>
         </Paper>
-        <Grid container spacing={3}>
-        <Grid item xs={3}>
-        <Button text="Delete" onClick={ () => deletePayment(paymentId)}> </Button>
-        </Grid>
-        <Grid item xs={3}>
-        <Link to={`/payment`}><Button text="Back To Home"> </Button ></Link>
-        </Grid>
-        </Grid>
+        <div style={{textAlign:"center"}}>
+        <div style={{display:"inline-flex"}}>
+        <Button text="Delete" onClick={ () => deletePayment(paymentId)}> </Button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <Link to={`/payment`}><Button text="Back To Home"> </Button ></Link><br/><br/><br/><br/>
+        </div>
+        </div>
         </div>
     )
 }

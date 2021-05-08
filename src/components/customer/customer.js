@@ -3,14 +3,19 @@ import axios from 'axios'
 import { connect, useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router';
 import {  getCustomerById ,deleteCustomerById} from "../../actions/customer/CustomerActionType";
-import {  Grid } from '@material-ui/core';
 import {Link} from "react-router-dom"
 import Box from '@material-ui/core/Box';
 import { Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '../Buttons/Button'
-import classes from '../design/AppointmentComponent.module.css'
 
+
+
+// /**
+//  * Author : Monisha V
+//  * Date   : 06-05-2021 
+//  * Description : This is Customer Container
+//  **/
 
 const Customer = () => {
     const {userId} = useParams();
@@ -43,9 +48,9 @@ const Customer = () => {
         setCustomer(result.data);
     }
     const  deleteCustomer = async (userId) => {
-        await axios.delete(`http://localhost:9082/api/cars24/removeCustomer/${userId}`).catch((err) => {console.log("Error" , err);});
+        await axios.delete(`http://localhost:9082/api/cars24/removeCustomer/${userId}`).then(()=>console.log("Deleted Successfully")).catch((err) => {console.log("Error" , err); alert("Cannot be deleted due to dependencies");});
        dispatch(deleteCustomerById(userId));
-       alert("Deleted Successfully");
+      
        history.push('/customer')
      }
 
